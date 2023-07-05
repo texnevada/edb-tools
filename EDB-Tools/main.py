@@ -1,22 +1,32 @@
 #from colorama import init, Fore
 #from InquirerPy import inquirer
 #from InquirerPy.validator import EmptyInputValidator
+import sys
+import os
+import time
 
 from resources.setup_logger import get_log
+from resources.check import function_runtime
 
 __version__ = "0.0.1"
 log = get_log(__name__)
 
 
+@function_runtime
+def clear():
+    log.debug("Clearing console screen")
+    os.system("cls") if sys.platform == "win32" else os.system("clear")
+
+
+def start():
+    splash()
+    menu()
+    clear()
+
+
+@function_runtime
 def splash():
     log.info(f"#" * 80)
-
-    # log.info("   ███████╗██████╗ ██████╗     ████████╗ ██████╗  ██████╗ ██╗     ███████╗")
-    # log.info("   ██╔════╝██╔══██╗██╔══██╗    ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝")
-    # log.info("   █████╗  ██║  ██║██████╔╝       ██║   ██║   ██║██║   ██║██║     ███████╗")
-    # log.info("   ██╔══╝  ██║  ██║██╔══██╗       ██║   ██║   ██║██║   ██║██║     ╚════██║")
-    # log.info("   ███████╗██████╔╝██████╔╝       ██║   ╚██████╔╝╚██████╔╝███████╗███████║")
-    # log.info("   ╚══════╝╚═════╝ ╚═════╝        ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝")
 
     log.info("       ______   ____     ____     ______            __    ")
     log.info("      / ____/  / __ \\   / __ )   /_  __/___  ____  / /____")
@@ -27,4 +37,9 @@ def splash():
 
     log.info(f"#" * 80)
 
-splash()
+
+def menu():
+    pass
+
+
+start()
