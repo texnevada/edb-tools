@@ -13,9 +13,10 @@ import sys
 if sys.getdefaultencoding() != 'utf-8':
     sys.setdefaultencoding('utf-8')
 
+
 def get_log(name: str):
     logger = logging.getLogger(name)
-    logger.setLevel(20)
+    logger.setLevel(10)
     formatter = logging.Formatter('%(asctime)s | [%(levelname)s] | %(name)s: %(message)s')
     stream_formatter = logging.Formatter('%(message)s')
 
